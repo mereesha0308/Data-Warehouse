@@ -1,0 +1,1165 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/13/2022 3:38:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-IKSVN27"
+  DTS:CreatorName="DESKTOP-IKSVN27\Mereesha"
+  DTS:DTSID="{D38802BD-4C7D-4481-90FB-C656D92C8000}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2DDA3304-6CC5-45B6-880D-BB58B15BC932}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-IKSVN27\SQLEXPRESS01.IT20139230_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1F68A222-077E-4F6F-B4E5-BCBDFA1C869F}"
+      DTS:ObjectName="DESKTOP-IKSVN27\SQLEXPRESS01.IT20139230_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-IKSVN27\SQLEXPRESS01;Initial Catalog=IT20139230_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update FactChurn accm_txn_complete_time"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0383D10B-9DCC-4644-9AAB-7C38A0A7DF44}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update FactChurn accm_txn_complete_time"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Transform and load accm_txn_complete_time"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[accm_txn_complete_time]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-IKSVN27\SQLEXPRESS01.IT20139230_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-IKSVN27\SQLEXPRESS01.IT20139230_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="50"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].Columns[ accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].ExternalColumns[ accm_txn_complete_time]"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].Columns[ accm_txn_complete_time]"
+                      name=" accm_txn_complete_time"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].ExternalColumns[ accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name=" accm_txn_complete_time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[ accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[ accm_txn_complete_time]"
+                      name=" accm_txn_complete_time" />
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update FacyChurn accm_txn_complete_time"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update [dbo].[FactChurn]
+set [accm_txn_complete_time] = ?
+where [CustomerID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Connections[OleDbConnection]"
+                  connectionManagerID="{564F9672-5EF4-4487-99D3-BC4226651FF6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-IKSVN27_SQLEXPRESS01.IT20139230_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input].Columns[ accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName=" accm_txn_complete_time"
+                      externalMetadataColumnId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].Columns[ accm_txn_complete_time]" />
+                    <inputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Update FactChurn accm_txn_complete_time.Paths[OLE DB Source Output]"
+              endId="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update FactChurn txn_process_time_hours"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{54D284AF-03FF-48D6-978D-8F067DDA1529}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update FactChurn txn_process_time_hours"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract data from FactChurn"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactChurn]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Connections[OleDbConnection]"
+                  connectionManagerID="{564F9672-5EF4-4487-99D3-BC4226651FF6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-IKSVN27_SQLEXPRESS01.IT20139230_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="15"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerDetailsKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CustomerDetailsKey]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerDetailsKey]"
+                      name="CustomerDetailsKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      name="LocationKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TenureInMonths]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TenureInMonths]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TenureInMonths]"
+                      name="TenureInMonths"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[AvgMonthlyLongDistance]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[AvgMonthlyLongDistance]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[AvgMonthlyLongDistance]"
+                      name="AvgMonthlyLongDistance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[MonthlyCharge]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[MonthlyCharge]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[MonthlyCharge]"
+                      name="MonthlyCharge"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalCharges]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalCharges]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalCharges]"
+                      name="TotalCharges"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalRefunds]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalRefunds]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalRefunds]"
+                      name="TotalRefunds"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalExtraDataCharges]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalExtraDataCharges]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalExtraDataCharges]"
+                      name="TotalExtraDataCharges"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalLongDistanceCharges]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalLongDistanceCharges]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalLongDistanceCharges]"
+                      name="TotalLongDistanceCharges"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalRevenue]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalRevenue]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[TotalRevenue]"
+                      name="TotalRevenue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[SatisficationScore]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[SatisficationScore]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[SatisficationScore]"
+                      name="SatisficationScore"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CustomerStatus]"
+                      length="15"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerStatus]"
+                      name="CustomerStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnLebel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnLebel]"
+                      length="5"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnLebel]"
+                      name="ChurnLebel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnValue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnValue]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnValue]"
+                      name="ChurnValue"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnScore]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnScore]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnScore]"
+                      name="ChurnScore"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CLTV]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CLTV]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CLTV]"
+                      name="CLTV"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnCategory]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnCategory]"
+                      length="30"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnCategory]"
+                      name="ChurnCategory"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnReason]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnReason]"
+                      length="60"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnReason]"
+                      name="ChurnReason"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnedDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnedDateKey]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ChurnedDateKey]"
+                      name="ChurnedDateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      name="InsertDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_create_time]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[accm_txn_create_time]"
+                      name="accm_txn_create_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[txn_process_time_hours]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[txn_process_time_hours]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[txn_process_time_hours]"
+                      name="txn_process_time_hours"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="15"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CustomerDetailsKey]"
+                      dataType="i4"
+                      name="CustomerDetailsKey" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TenureInMonths]"
+                      dataType="numeric"
+                      name="TenureInMonths"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[AvgMonthlyLongDistance]"
+                      dataType="r4"
+                      name="AvgMonthlyLongDistance" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[MonthlyCharge]"
+                      dataType="r4"
+                      name="MonthlyCharge" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalCharges]"
+                      dataType="r4"
+                      name="TotalCharges" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalRefunds]"
+                      dataType="r4"
+                      name="TotalRefunds" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalExtraDataCharges]"
+                      dataType="r4"
+                      name="TotalExtraDataCharges" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalLongDistanceCharges]"
+                      dataType="r4"
+                      name="TotalLongDistanceCharges" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[TotalRevenue]"
+                      dataType="r4"
+                      name="TotalRevenue" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[SatisficationScore]"
+                      dataType="numeric"
+                      name="SatisficationScore"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CustomerStatus]"
+                      dataType="wstr"
+                      length="15"
+                      name="CustomerStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnLebel]"
+                      dataType="wstr"
+                      length="5"
+                      name="ChurnLebel" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnValue]"
+                      dataType="numeric"
+                      name="ChurnValue"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnScore]"
+                      dataType="numeric"
+                      name="ChurnScore"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[CLTV]"
+                      dataType="numeric"
+                      name="CLTV"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnCategory]"
+                      dataType="wstr"
+                      length="30"
+                      name="ChurnCategory" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnReason]"
+                      dataType="wstr"
+                      length="60"
+                      name="ChurnReason" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ChurnedDateKey]"
+                      dataType="i4"
+                      name="ChurnedDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      name="InsertDate" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_create_time" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].ExternalColumns[txn_process_time_hours]"
+                      dataType="i4"
+                      name="txn_process_time_hours" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CustomerDetailsKey]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CustomerDetailsKey]"
+                      name="CustomerDetailsKey" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      name="LocationKey" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TenureInMonths]"
+                      dataType="numeric"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TenureInMonths]"
+                      name="TenureInMonths"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[AvgMonthlyLongDistance]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[AvgMonthlyLongDistance]"
+                      name="AvgMonthlyLongDistance" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[MonthlyCharge]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[MonthlyCharge]"
+                      name="MonthlyCharge" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalCharges]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalCharges]"
+                      name="TotalCharges" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalRefunds]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalRefunds]"
+                      name="TotalRefunds" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalExtraDataCharges]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalExtraDataCharges]"
+                      name="TotalExtraDataCharges" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalLongDistanceCharges]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalLongDistanceCharges]"
+                      name="TotalLongDistanceCharges" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalRevenue]"
+                      dataType="r4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[TotalRevenue]"
+                      name="TotalRevenue" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[SatisficationScore]"
+                      dataType="numeric"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[SatisficationScore]"
+                      name="SatisficationScore"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CustomerStatus]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CustomerStatus]"
+                      name="CustomerStatus" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnLebel]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnLebel]"
+                      name="ChurnLebel" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnValue]"
+                      dataType="numeric"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnValue]"
+                      name="ChurnValue"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnScore]"
+                      dataType="numeric"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnScore]"
+                      name="ChurnScore"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CLTV]"
+                      dataType="numeric"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[CLTV]"
+                      name="CLTV"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnCategory]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnCategory]"
+                      name="ChurnCategory" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnReason]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnReason]"
+                      name="ChurnReason" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnedDateKey]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ChurnedDateKey]"
+                      name="ChurnedDateKey" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      name="InsertDate" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[accm_txn_create_time]"
+                      name="accm_txn_create_time" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[txn_process_time_hours]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[txn_process_time_hours]"
+                      name="txn_process_time_hours" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update FactChurn txn_process_time_hours"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[FactChurn]
+SET [txn_process_time_hours] = DATEDIFF (Hh, accm_txn_create_time, accm_txn_complete_time)
+WHERE [CustomerID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Connections[OleDbConnection]"
+                  connectionManagerID="{564F9672-5EF4-4487-99D3-BC4226651FF6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-IKSVN27_SQLEXPRESS01.IT20139230_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="15"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Update FactChurn txn_process_time_hours.Paths[OLE DB Source Output]"
+              endId="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{609463F9-1965-4632-8D4F-272469B43B91}"
+      DTS:From="Package\Update FactChurn accm_txn_complete_time"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update FactChurn txn_process_time_hours" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="286.4,41.6"
+          Id="Package\Update FactChurn accm_txn_complete_time"
+          TopLeft="215.000003661428,143.764707898599" />
+        <NodeLayout
+          Size="280.8,41.6"
+          Id="Package\Update FactChurn txn_process_time_hours"
+          TopLeft="219.285718020128,246.235297571004" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="358.942860840778,185.364707898599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.8705896724053"
+              Start="0,0"
+              End="0,53.3705896724053">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3705896724053" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Update FactChurn accm_txn_complete_time">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="293.6,41.6"
+          Id="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time"
+          TopLeft="112.857144779088,184.294120231714" />
+        <NodeLayout
+          Size="288,41.6"
+          Id="Package\Update FactChurn accm_txn_complete_time\Update FacyChurn accm_txn_complete_time"
+          TopLeft="507.142865779449,174.352943621705" />
+        <EdgeLayout
+          Id="Package\Update FactChurn accm_txn_complete_time.Paths[OLE DB Source Output]"
+          TopLeft="406.457144779088,205.094120231714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100.68572100036,-9.94117661000931"
+              Start="0,0"
+              End="93.1857210003602,-9.94117661000931">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.3428605001801,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.3428605001801,0"
+                    Point2="50.3428605001801,0"
+                    Point3="50.3428605001801,-4" />
+                  <mssgle:LineSegment
+                    End="50.3428605001801,-5.94117661000931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.3428605001801,-5.94117661000931"
+                    Point2="50.3428605001801,-9.94117661000931"
+                    Point3="54.3428605001801,-9.94117661000931" />
+                  <mssgle:LineSegment
+                    End="93.1857210003602,-9.94117661000931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update FactChurn accm_txn_complete_time\Transform and load accm_txn_complete_time">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Update FactChurn txn_process_time_hours">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="280.8,41.6"
+          Id="Package\Update FactChurn txn_process_time_hours\Update FactChurn txn_process_time_hours"
+          TopLeft="637,206" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn"
+          TopLeft="233,201" />
+        <EdgeLayout
+          Id="Package\Update FactChurn txn_process_time_hours.Paths[OLE DB Source Output]"
+          TopLeft="444.2,224.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.8,0"
+              Start="0,0"
+              End="185.3,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="185.3,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update FactChurn txn_process_time_hours\Extract data from FactChurn">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
